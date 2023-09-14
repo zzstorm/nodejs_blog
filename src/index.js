@@ -10,7 +10,7 @@ const port = 3000
 app.use(express.static(path.join(__dirname,'public')))
 
 //http logger
-app.use(morgan('combined'))
+// app.use(morgan('combined'))
 
 //Template engine
 app.set('view engine', 'hbs')
@@ -27,6 +27,11 @@ app.get('/', (req, res) => {
 
 app.get('/product', (req, res) => {
   res.render('product');
+})
+
+app.get('/search', (req, res) => {
+  console.log(req.query.q)
+  res.render('search')
 })
 
 app.get('/news', (req, res) => {
